@@ -1,0 +1,188 @@
+from PyQt5 import QtCore, QtGui, QtWidgets
+from PyQt5.QtWidgets import QMessageBox
+from math import factorial
+import math
+
+class Ui_MainWindow(object):
+    def setupUi(self, MainWindow):
+        MainWindow.setObjectName("MainWindow")
+        MainWindow.resize(320, 370)
+        MainWindow.setSizeIncrement(QtCore.QSize(0, 400))
+        self.centralwidget = QtWidgets.QWidget(MainWindow)
+        self.centralwidget.setObjectName("centralwidget")
+        self.btn_2 = QtWidgets.QPushButton(self.centralwidget)
+        self.btn_2.setGeometry(QtCore.QRect(80, 80, 80, 60))
+        self.btn_2.setStyleSheet("color: rgb(255, 255, 255);\n""background-color: rgb(0, 0, 0);")
+        self.btn_2.setObjectName("btn_2")
+        self.btn_delete = QtWidgets.QPushButton(self.centralwidget)
+        self.btn_delete.setGeometry(QtCore.QRect(240, 80, 80, 60))
+        self.btn_delete.setStyleSheet("color: rgb(255, 255, 255);\n""background-color: rgb(0, 0, 0);")
+        self.btn_delete.setObjectName("btn_delete")
+        self.btn_equal = QtWidgets.QPushButton(self.centralwidget)
+        self.btn_equal.setGeometry(QtCore.QRect(250, 0, 70, 80))
+        self.btn_equal.setStyleSheet("color: rgb(255, 255, 255);\n""background-color: rgb(0, 0, 0);")
+        self.btn_equal.setObjectName("btn_equal")
+        self.btn_3 = QtWidgets.QPushButton(self.centralwidget)
+        self.btn_3.setGeometry(QtCore.QRect(160, 80, 80, 60))
+        self.btn_3.setStyleSheet("color: rgb(255, 255, 255);\n""background-color: rgb(0, 0, 0);")
+        self.btn_3.setObjectName("btn_3")
+        self.label_result = QtWidgets.QLabel(self.centralwidget)
+        self.label_result.setGeometry(QtCore.QRect(0, 0, 250, 80))
+        font = QtGui.QFont()
+        font.setFamily("Segoe UI")
+        font.setPointSize(15)
+        font.setBold(False)
+        font.setWeight(50)
+        self.label_result.setFont(font)
+        self.label_result.setStyleSheet("color: rgb(255, 255, 255);\n""background-color: rgb(103, 103, 103);\n""")
+        self.label_result.setText("")
+        self.label_result.setObjectName("label_result")
+        self.btn_1 = QtWidgets.QPushButton(self.centralwidget)
+        self.btn_1.setGeometry(QtCore.QRect(0, 80, 80, 60))
+        self.btn_1.setStyleSheet("color: rgb(255, 255, 255);\n""background-color: rgb(0, 0, 0);")
+        self.btn_1.setObjectName("btn_1")
+        self.btn_minus = QtWidgets.QPushButton(self.centralwidget)
+        self.btn_minus.setGeometry(QtCore.QRect(240, 140, 80, 60))
+        self.btn_minus.setStyleSheet("color: rgb(255, 255, 255);\n""background-color: rgb(0, 0, 0);")
+        self.btn_minus.setObjectName("btn_minus")
+        self.btn_5 = QtWidgets.QPushButton(self.centralwidget)
+        self.btn_5.setGeometry(QtCore.QRect(80, 140, 80, 60))
+        self.btn_5.setStyleSheet("color: rgb(255, 255, 255);\n""background-color: rgb(0, 0, 0);")
+        self.btn_5.setObjectName("btn_5")
+        self.btn_6 = QtWidgets.QPushButton(self.centralwidget)
+        self.btn_6.setGeometry(QtCore.QRect(160, 140, 80, 60))
+        self.btn_6.setStyleSheet("color: rgb(255, 255, 255);\n""background-color: rgb(0, 0, 0);")
+        self.btn_6.setObjectName("btn_6")
+        self.btn_4 = QtWidgets.QPushButton(self.centralwidget)
+        self.btn_4.setGeometry(QtCore.QRect(0, 140, 80, 60))
+        self.btn_4.setStyleSheet("color: rgb(255, 255, 255);\n""background-color: rgb(0, 0, 0);")
+        self.btn_4.setObjectName("btn_4")
+        self.btn_mult = QtWidgets.QPushButton(self.centralwidget)
+        self.btn_mult.setGeometry(QtCore.QRect(240, 200, 80, 60))
+        self.btn_mult.setStyleSheet("color: rgb(255, 255, 255);\n""background-color: rgb(0, 0, 0);")
+        self.btn_mult.setObjectName("btn_mult")
+        self.btn_8 = QtWidgets.QPushButton(self.centralwidget)
+        self.btn_8.setGeometry(QtCore.QRect(80, 200, 80, 60))
+        self.btn_8.setStyleSheet("color: rgb(255, 255, 255);\n""background-color: rgb(0, 0, 0);")
+        self.btn_8.setObjectName("btn_8")
+        self.btn_9 = QtWidgets.QPushButton(self.centralwidget)
+        self.btn_9.setGeometry(QtCore.QRect(160, 200, 80, 60))
+        self.btn_9.setStyleSheet("color: rgb(255, 255, 255);\n""background-color: rgb(0, 0, 0);")
+        self.btn_9.setObjectName("btn_9")
+        self.btn_7 = QtWidgets.QPushButton(self.centralwidget)
+        self.btn_7.setGeometry(QtCore.QRect(0, 200, 80, 60))
+        self.btn_7.setStyleSheet("color: rgb(255, 255, 255);\n""background-color: rgb(0, 0, 0);")
+        self.btn_7.setObjectName("btn_7")
+        self.btn_plus = QtWidgets.QPushButton(self.centralwidget)
+        self.btn_plus.setGeometry(QtCore.QRect(240, 260, 80, 60))
+        self.btn_plus.setStyleSheet("color: rgb(255, 255, 255);\n""background-color: rgb(0, 0, 0);")
+        self.btn_plus.setObjectName("btn_plus")
+        self.btn_divide_ = QtWidgets.QPushButton(self.centralwidget)
+        self.btn_divide_.setGeometry(QtCore.QRect(160, 260, 80, 60))
+        self.btn_divide_.setStyleSheet("color: rgb(255, 255, 255);\n""background-color: rgb(0, 0, 0);")
+        self.btn_divide_.setObjectName("btn_divide_")
+        self.btn_dot = QtWidgets.QPushButton(self.centralwidget)
+        self.btn_dot.setGeometry(QtCore.QRect(80, 260, 80, 60))
+        self.btn_dot.setStyleSheet("color: rgb(255, 255, 255);\n""background-color: rgb(0, 0, 0);")
+        self.btn_dot.setObjectName("btn_dot")
+        self.btn_0 = QtWidgets.QPushButton(self.centralwidget)
+        self.btn_0.setGeometry(QtCore.QRect(0, 260, 80, 60))
+        self.btn_0.setStyleSheet("color: rgb(255, 255, 255);\n""background-color: rgb(0, 0, 0);")
+        self.btn_0.setObjectName("btn_0")
+        MainWindow.setCentralWidget(self.centralwidget)
+        self.menubar = QtWidgets.QMenuBar(MainWindow)
+        self.menubar.setGeometry(QtCore.QRect(0, 0, 320, 26))
+        self.menubar.setObjectName("menubar")
+        MainWindow.setMenuBar(self.menubar)
+        self.statusbar = QtWidgets.QStatusBar(MainWindow)
+        self.statusbar.setObjectName("statusbar")
+        MainWindow.setStatusBar(self.statusbar)
+
+        self.retranslateUi(MainWindow)
+        QtCore.QMetaObject.connectSlotsByName(MainWindow)
+
+        self.add_functions()
+
+        self.is_equal = False
+
+    def retranslateUi(self, MainWindow):
+        _translate = QtCore.QCoreApplication.translate
+        MainWindow.setWindowTitle(_translate("MainWindow", "Калькулятор"))
+        self.btn_2.setText(_translate("MainWindow", "2"))
+        self.btn_delete.setText(_translate("MainWindow", "<-"))
+        self.btn_equal.setText(_translate("MainWindow", "="))
+        self.btn_3.setText(_translate("MainWindow", "3"))
+        self.btn_1.setText(_translate("MainWindow", "1"))
+        self.btn_minus.setText(_translate("MainWindow", "-"))
+        self.btn_5.setText(_translate("MainWindow", "5"))
+        self.btn_6.setText(_translate("MainWindow", "6"))
+        self.btn_4.setText(_translate("MainWindow", "4"))
+        self.btn_mult.setText(_translate("MainWindow", "*"))
+        self.btn_8.setText(_translate("MainWindow", "8"))
+        self.btn_9.setText(_translate("MainWindow", "9"))
+        self.btn_7.setText(_translate("MainWindow", "7"))
+        self.btn_plus.setText(_translate("MainWindow", "+"))
+        self.btn_divide_.setText(_translate("MainWindow", "/"))
+        self.btn_dot.setText(_translate("MainWindow", "."))
+        self.btn_0.setText(_translate("MainWindow", "0"))
+
+    def add_functions(self):
+        self.btn_0.clicked.connect(lambda: self.write_number(self.btn_0.text()))
+        self.btn_1.clicked.connect(lambda: self.write_number(self.btn_1.text()))
+        self.btn_2.clicked.connect(lambda: self.write_number(self.btn_2.text()))
+        self.btn_3.clicked.connect(lambda: self.write_number(self.btn_3.text()))
+        self.btn_4.clicked.connect(lambda: self.write_number(self.btn_4.text()))
+        self.btn_5.clicked.connect(lambda: self.write_number(self.btn_5.text()))
+        self.btn_6.clicked.connect(lambda: self.write_number(self.btn_6.text()))
+        self.btn_7.clicked.connect(lambda: self.write_number(self.btn_7.text()))
+        self.btn_8.clicked.connect(lambda: self.write_number(self.btn_8.text()))
+        self.btn_9.clicked.connect(lambda: self.write_number(self.btn_9.text()))
+        self.btn_mult.clicked.connect(lambda: self.write_number(self.btn_mult.text()))
+        self.btn_divide_.clicked.connect(lambda: self.write_number(self.btn_divide_.text()))
+        self.btn_minus.clicked.connect(lambda: self.write_number(self.btn_minus.text()))
+        self.btn_plus.clicked.connect(lambda: self.write_number(self.btn_plus.text()))
+        self.btn_dot.clicked.connect(lambda: self.write_number(self.btn_dot.text()))
+        self.btn_delete.clicked.connect(self.Delete)
+        self.btn_equal.clicked.connect(self.results)
+
+    def write_number(self, number):
+        if self.label_result.text() == "" or self.is_equal:
+            self.label_result.setText(number)
+            self.is_equal = False
+        else:
+            self.label_result.setText (self.label_result.text() + number)
+
+    def Delete(self):
+        a = self.label_result.text()
+        a = a[:-1]
+        self.label_result.setText(a)
+
+    def results(self):
+        if not self.is_equal:
+            try:
+                res = eval(self.label_result.text())
+            except ZeroDivisionError:
+                res = ""
+                er2 = QMessageBox()
+                er2.setWindowTitle("ОШИБКА")
+                er2.setText("На ноль делить нельзя")
+                er2.setIcon(QMessageBox.Warning)
+                er2.exec()
+            self.label_result.setText(str(res))
+            self.is_equal = True
+        else:
+            error = QMessageBox()
+            error.setWindowTitle("ОШИБКА")
+            error.setText("Очистите поле ввода и начните пиатсь заново!")
+            error.setIcon(QMessageBox.Warning)
+            error.exec()
+
+
+if __name__ == "__main__":
+    import sys
+    app = QtWidgets.QApplication(sys.argv)
+    MainWindow = QtWidgets.QMainWindow()
+    ui = Ui_MainWindow()
+    ui.setupUi(MainWindow)
+    MainWindow.show()
+    sys.exit(app.exec_())
